@@ -10,15 +10,6 @@ The primary objective of this project is to design and create a relational datab
 5.	Instructors (provide relevant columns in relation to your tables)
 (InstructorID, Name, DepartmentID, Gender)
 
-## Relationships 
-- One Department has many Students
-- One Department offers many Courses
-- One Student can enroll in many Courses (many-to-many via Enrollments)
-
-## Entity Relationship Diagram 
-![](SMS_schema.png)
-
-
 ## Entities (Tables)
 1.	Students
 Primary Key: StudentID 
@@ -27,7 +18,7 @@ Purpose: Contains details about each student and links them to a specific depart
 
 2.	Departments
 Primary Key: DepartmentID 
-Fields: DepartmentName 
+Fields: DepartmentName
 Purpose: Holds information about various departments within the institution. 
 
 3.	Courses
@@ -43,6 +34,42 @@ Purpose: Records which students are enrolled in which courses and when, represen
 5.	Instructors
 Primary Key: InstructorID 
 Fields: Name, Gender, DOB, DepartmentID, Phone 
-Purpose: Maintains instructor information, with each instructor linked to a department. 
+Purpose: Maintains instructor information, with each instructor linked to a department.
+
+## Relationships 
+- One Department has many Students
+- One Department offers many Courses
+- One Student can enroll in many Courses (many-to-many via Enrollments)
+
+## Entity Relationship Diagram 
+![](SMS_schema.png)
+
+## Relationships
+-	Students to Departments
+Each student belongs to one department (many students to one department). 
+The DepartmentID in the Students table is a foreign key referencing the Departments table. 
+
+- Courses to Departments
+Each course is assigned to one department (many courses to one department). 
+The DepartmentID in the Courses table references the Departments table. 
+
+- Enrollments link Students and Courses
+There is a many-to-many relationship between students and courses, managed through the Enrollments table. 
+StudentID in Enrollments references Students, and CourseID references Courses. 
+
+-	Instructors to Departments
+Each instructor belongs to a single department (many instructors to one department). 
+The DepartmentID in the Instructors table refers to Departments. 
+
+
+## Overall Structure
+The Departments table acts as a central entity connecting to Students, Courses, and Instructors through one-to-many relationships. 
+The Enrollments table bridges Students and Courses, effectively modeling their many-to-many relationship. 
+Foreign key constraints ensure consistency and integrity across these relationships. 
+
+
+
+
+
 
 
