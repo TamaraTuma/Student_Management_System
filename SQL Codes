@@ -1,12 +1,11 @@
--- SQL Codes
+DATABASE CREATION
 
-Creating the tables
+1. CREATING ALL THE REQUIRED TABLES
 
 CREATE TABLE Departments (
     DepartmentID SERIAL PRIMARY KEY,
     DepartmentName VARCHAR(100) NOT NULL
 );
-
 
 CREATE TABLE Students (
     StudentID SERIAL PRIMARY KEY,
@@ -37,19 +36,304 @@ EnrollmentDate DATE
 );
 
 
+2. INSERTING VALUES INTO THE TABLES
 
-UPDATING THE COURSES TABLE – LATER ON IN THE ANALYSIS
+Departments Table
+INSERT INTO Departments (DepartmentName) VALUES
+('Finance'),
+('IT'),
+('History'),
+('Law'),
+('Medicine'),
+('Linguistics');
+
+
+Students Table
+INSERT INTO Students (StudentID, Name, Gender, DOB, DepartmentID) VALUES
+(1, 'Samantha Brown', 'FEMALE', '2000-03-15', 1),
+(2, 'Gary Strap', 'MALE', '2001-07-22', 2),
+(3, 'Corey Stevens', 'MALE', '1999-11-30', 3),
+(4, 'Michelle Roe', 'FEMALE', '2002-01-05', 1),
+(5, 'Shanice Pilgrim', 'FEMALE', '2000-09-18', 5),
+(6, 'Davia Rose', 'FEMALE', '2001-05-27', 2),
+(7, 'Matthew Dunn', 'MALE', '1998-12-12', 1),
+(8, 'Jack Fern', 'MALE', '2002-04-03', 2),
+(9, 'Robert Helms', 'MALE', '2000-06-14', 5),
+(10, 'Paul Bogle', 'MALE', '1999-10-25', 4),
+(11, 'Winston Bright', 'MALE', '2001-02-19', 5),
+(12, 'Drew Barrymore', 'FEMALE', '2002-08-10', 6),
+(13, 'Nicki Minaj', 'FEMALE', '2000-11-05', 1),
+(14, 'Alissa Barrett', 'FEMALE', '2001-01-21', 2),
+(15, 'Faval Green', 'FEMALE', '1999-04-08', 5),
+(16, 'Portia Miller', 'FEMALE', '2000-07-31', 1),
+(17, 'Stewie Davenport', 'MALE', '2002-03-17', 5),
+(18, 'Ackelia Beet', 'FEMALE', '2001-09-09', 6),
+(19, 'Fernando Nunez', 'MALE', '2000-02-13', 1),
+(20, 'Krissan White', 'FEMALE', '1998-08-29', 2),
+(21, 'Rue Robinson', 'FEMALE', '2001-06-06', 3),
+(22, 'Daedra Phillips', 'FEMALE', '2002-10-01', 4),
+(23, 'Shomarie Steele', 'MALE', '1999-12-24', 1),
+(24, 'Peter Pan', 'MALE', '2000-05-20', 6),
+(25, 'Cinderella Jones', 'FEMALE', '2001-03-11', 1),
+(26, 'Stacy-Ann Dean', 'FEMALE', '2002-07-04', 2),
+(27, 'Robyn Fenty', 'FEMALE', '2000-01-29', 3),
+(28, 'Elizabeth Wright', 'FEMALE', '1999-06-15', 1),
+(29, 'Roxxane Gordon', 'FEMALE', '2001-12-01', 1),
+(30, 'King Anderson', 'MALE', '2002-02-26', 2),
+(31, 'Olivia Carter', 'FEMALE', '2000-04-15', 1),
+(32, 'Liam Thompson', 'MALE', '1999-11-22', 4),
+(33, 'Emma Rodriguez', 'FEMALE', '2002-06-08', 4),
+(34, 'Noah Wilson', 'MALE', '2001-01-30', 1),
+(35, 'Ava Patel', 'FEMALE', '2000-09-17', 4),
+(36, 'Elijah Kim', 'MALE', '1998-12-02', 5),
+(37, 'Sophia Nguyen', 'FEMALE', '2001-05-24', 1),
+(38, 'James Murphy', 'MALE', '2002-03-12', 3),
+(39, 'Isabella Wright', 'FEMALE', '1999-07-29', 5),
+(40, 'Benjamin Lee', 'MALE', '2000-08-18', 1),
+(41, 'Mia Johnson', 'FEMALE', '2001-10-04', 5),
+(42, 'Alleah Martinez', 'FEMALE', '1998-05-11', 6),
+(43, 'William Scott', 'MALE', '1999-02-26', 1),
+(44, 'Amelia Green', 'FEMALE', '2000-12-07', 2),
+(45, 'Miah Adams', 'FEMALE', '2001-04-01', 2),
+(46, 'Daniel Parker', 'MALE', '2002-09-06', 2),
+(47, 'Matthew Bailey', 'MALE', '1998-10-09', 2),
+(48, 'Ethan Collins', 'MALE', '1999-03-15', 6),
+(49, 'Zoe Bennett', 'FEMALE', '2000-06-23', 5),
+(50, 'Leandra Russell', 'FEMALE', '2001-08-30', 3);
+
+Courses Table
+INSERT INTO Courses (CourseID, CourseName, DepartmentID) VALUES
+('FIN101', 'Corporate Finance', 1),
+('FIN102', 'Investment Analysis', 1),
+('FIN103', 'Introduction to Managerial Accounting', 1),
+('FIN104', 'Financial Management', 1),
+('FIN105', 'Advance Financial Management', 1),
+('IT101',  'Introduction to Programming', 2),
+('IT102',  'Database Systems', 2),
+('HIS101', 'World History', 3),
+('LAW101', 'Constitutional Law', 4),
+('LAW102', 'Criminal Law', 4),
+('LAW103', 'International Law', 4),
+('MED101', 'Anatomy and Physiology Medicine', 5),
+('LIN101', 'Phonetics and Phonology Linguistics', 6),
+('LIN102', 'Syntax and Semantics Linguistics', 6);
+
+Instructors Table
+INSERT INTO Instructors (InstructorID, Name, DepartmentID, Gender) VALUES
+(1, 'Joe Brown', 1, 'Male'),
+(2, 'Kelly Prance', 1, 'Female'),
+(3, 'Steve Jobs', 2, 'Male'),
+(4, 'John Snow', 2, 'Male'),
+(5, 'Steve Whitaker', 3, 'Male'),
+(6, 'Percy Jones', 4, 'Male'),
+(7, 'Sheena Bailey', 5, 'Female'),
+(8, 'Ackera Sommons', 6, 'Female'),
+(9, 'Kandace Rowe', 6, 'Female');
+
+
+Enrollments Table
+INSERT INTO Enrollments (EnrollmentID, StudentID, CourseID, EnrollmentDate) VALUES
+('E001', 1, 'FIN101', '2024-08-28'),
+('E002', 2, 'IT102', '2024-09-03'),
+('E003', 3, 'HIS101', '2024-09-07'),
+('E004', 4, 'FIN102', '2024-09-01'),
+('E005', 5, 'MED101', '2024-09-05'),
+('E006', 6, 'IT102', '2024-08-30'),
+('E007', 7, 'FIN101', '2024-09-06'),
+('E008', 8, 'IT101', '2024-09-02'),
+('E009', 9, 'MED101', '2024-09-08'),
+('E010', 16, 'LAW102', '2024-09-04'),
+('E011', 11, 'MED101', '2024-09-10'),
+('E012', 12, 'LIN102', '2024-09-01'),
+('E013', 13, 'FIN102', '2024-09-09'),
+('E014', 14, 'IT101', '2024-08-31'),
+('E015', 15, 'MED101', '2024-09-11'),
+('E016', 16, 'FIN101', '2024-09-03'),
+('E017', 17, 'MED101', '2024-09-06'),
+('E018', 18, 'LIN101', '2024-09-02'),
+('E019', 19, 'FIN101', '2024-09-12'),
+('E020', 20, 'IT101', '2024-09-05'),
+('E021', 21, 'HIS101', '2024-08-29'),
+('E022', 7, 'LAW102', '2024-09-10'),
+('E023', 23, 'FIN101', '2024-09-04'),
+('E024', 24, 'LIN101', '2024-09-13'),
+('E025', 25, 'FIN102', '2024-09-03'),
+('E026', 26, 'IT102', '2024-09-06'),
+('E027', 27, 'HIS101', '2024-09-07'),
+('E028', 8, 'FIN102', '2024-09-01'),
+('E029', 29, 'FIN101', '2024-08-30'),
+('E030', 30, 'IT101', '2024-09-08'),
+('E031', 2, 'FIN103', '2024-09-04'),
+('E032', 14, 'FIN104', '2024-09-04'),
+('E033', 21, 'FIN103', '2024-09-01'),
+('E034', 8, 'LAW103', '2024-09-01'),
+('E035', 8, 'HIS101', '2024-09-02'),
+('E036', 31, 'FIN102', '2024-09-07'),
+('E037', 32, 'LAW101', '2024-09-01'),
+('E038', 33, 'LAW103', '2024-08-30'),
+('E039', 34, 'FIN103', '2024-09-08'),
+('E040', 35, 'LAW102', '2024-09-05'),
+('E041', 36, 'MED101', '2024-08-30'),
+('E042', 38, 'HIS101', '2024-09-08'),
+('E043', 39, 'MED101', '2024-09-04'),
+('E044', 40, 'FIN101', '2024-09-10'),
+('E045', 41, 'MED101', '2024-08-28'),
+('E046', 42, 'LIN101', '2024-09-03'),
+('E047', 43, 'FIN104', '2024-09-13'),
+('E048', 44, 'IT101', '2024-09-03'),
+('E049', 45, 'IT101', '2024-09-03'),
+('E050', 46, 'IT102', '2024-09-10'),
+('E051', 47, 'IT101', '2024-09-01'),
+('E052', 49, 'MED101', '2024-09-02'),
+('E053', 50, 'HIS101', '2024-09-12'),
+('E054', 1, 'IT101', '2024-09-05'),
+('E055', 20, 'LIN102', '2024-08-29'),
+('E056', 42, 'HIS101', '2024-09-10'),
+('E057', 13, 'FIN103', '2024-09-04'),
+('E058', 31, 'FIN105', '2024-09-13'),
+('E059', 15, 'IT101', '2024-09-03'),
+('E060', 42, 'LIN102', '2024-09-06'),
+('E061', 1, 'FIN102', '2024-09-07'),
+('E062', 34, 'IT102', '2024-09-01'),
+('E063', 38, 'LIN101', '2024-08-30'),
+('E064', 13, 'FIN104', '2024-09-01'),
+('E065', 18, 'HIS101', '2024-09-05'),
+('E066', 43, 'FIN105', '2024-08-30'),
+('E067', 43, 'HIS101', '2024-09-06'),
+('E068', 50, 'LAW102', '2024-09-02'),
+('E069', 19, 'FIN105', '2024-09-08'),
+('E070', 1, 'HIS101', '2024-09-04');
+
+3. UPDATING THE COURSES TABLE – LATER ON IN THE ANALYSIS TO ADD InstructorId
 ALTER TABLE courses
 ADD COLUMN instructorid INT,
 ADD CONSTRAINT fk_instructor
     FOREIGN KEY (instructorid)
     REFERENCES instructors(instructorid);
 
-THEN… INSERTING values for instructorid into the courses tables.
+THEN, INSERTING values for instructorid into the courses tables.
 For example: - This was repeated for all instructorid and each course.
 UPDATE courses
 SET instructorid = 5
 WHERE courseid = 'HIS101';
+
+-- How many students are currently enrolled in each course?
+SELECT COUNT(enrollmentid) AS enrollment, courseid
+FROM enrollments
+GROUP BY courseid
+ORDER BY enrollment DESC;
+
+-- Which students are enrolled in multiple courses, and which courses are they taking?
+WITH StudentsCTE AS ( 
+			SELECT studentid
+			FROM enrollments
+			GROUP BY studentid
+			HAVING COUNT(*) > 1
+)
+SELECT 
+	s.name , 
+	e.courseid, 
+	c.coursename
+FROM StudentsCTE se
+JOIN students s 
+	ON se.studentid = s.studentid
+JOIN enrollments e
+	ON e.studentid = s.studentid
+JOIN courses c
+	ON c.courseid = e.courseid
+ORDER BY s.name;
+
+-- What is the total number of students per department across all courses?
+SELECT COUNT(DISTINCT s.studentid) AS Total_Students_Enrolled, 
+ 	s.departmentid, 
+d.departmentname
+FROM students s
+JOIN departments d
+	ON s.departmentid = d.departmentid
+JOIN enrollments e
+	ON s.studentid = e.studentid
+GROUP BY s.departmentid , d.departmentname 
+ORDER BY Total_Students_Enrolled DESC;
+
+-- Which courses have the highest number of enrollments?
+SELECT courseid, COUNT(*) AS Total_Enrollments
+FROM enrollments
+GROUP BY courseid
+ORDER BY Total_Enrollments DESC
+LIMIT 1;
+
+-- Which department has the least number of students?
+SELECT d.departmentid, d.departmentname, COUNT(*) AS Total_Students
+FROM students s
+JOIN departments d
+	ON s.departmentid = d.departmentid
+GROUP BY d.departmentid, d.departmentname
+ORDER BY Total_Students ASC
+LIMIT 1;
+
+-- Are there any students not enrolled in any course?
+SELECT s.studentid, name 
+FROM students s
+LEFT JOIN enrollments e
+	ON s.studentid = e.studentid
+WHERE e.studentid IS NULL
+ORDER BY name ASC;
+
+-- How many courses does each student take on average?
+WITH StudentCourseCount AS (   
+		SELECT studentid, COUNT(courseid) AS course_count
+		FROM enrollments
+		GROUP BY studentid
+)
+SELECT ROUND(AVG(course_count),2) AS Avg_course_taken_per_student
+FROM StudentCourseCount;
+
+-- What is the gender distribution of students across courses and instructors?
+SELECT	COUNT(*) AS gender_count,
+                          s.gender,
+		c.courseid,
+		c.coursename,
+		i.instructorid,
+		i.name		
+FROM students s
+JOIN enrollments e
+	ON s.studentid = e.studentid
+JOIN courses c
+	ON e.courseid = c.courseid
+JOIN instructors i
+	ON c.instructorid = i.instructorid
+GROUP BY 
+		s.gender,
+		c.courseid,
+		i.instructorid,
+		i.name
+ORDER BY s.gender, c.coursename;
+
+-- Which course has the highest number of male or female students enrolled?
+SELECT 
+	c.courseid, 
+	c.coursename,
+	s.gender,
+	COUNT(*) AS num_enrolled
+FROM courses c
+JOIN enrollments e
+	ON c.courseid = e.courseid
+JOIN students s
+	ON s.studentid = e.studentid
+GROUP BY c.courseid, c.coursename, s.gender
+ORDER BY num_enrolled DESC
+LIMIT 1;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
