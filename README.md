@@ -60,6 +60,8 @@ The Enrollments table bridges Students and Courses, effectively modeling their m
 Foreign key constraints ensure consistency and integrity across these relationships. 
 
 -  To view the SQL codes used, [CLICK HERE](https://github.com/TamaraTuma/Student_Management_System/blob/main/SQL%20Codes)
+-  To view the sample of dataset,
+-  [CLICK HERE](https://github.com/TamaraTuma/Student_Management_System/blob/main/Student%20Management%20System.xlsx)
 
 
 
