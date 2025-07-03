@@ -59,7 +59,7 @@ The Departments table acts as a central entity connecting to Students, Courses, 
 The Enrollments table bridges Students and Courses, effectively modeling their many-to-many relationship. 
 Foreign key constraints ensure consistency and integrity across these relationships. 
 
-To view all codes used in this database creationa and analysis [CLICK HERE] (https://github.com/TamaraTuma/Student_Management_System/blob/main/SQL%20Codes)
+-  To view the SQL codes used, [CLICK HERE](https://github.com/TamaraTuma/Student_Management_System/blob/main/SQL%20Codes)
 
 
 
