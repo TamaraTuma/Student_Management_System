@@ -1,1 +1,56 @@
 -- SQL Codes
+
+Creating the tables
+
+CREATE TABLE Departments (
+    DepartmentID SERIAL PRIMARY KEY,
+    DepartmentName VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE Students (
+    StudentID SERIAL PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Gender VARCHAR(10) CHECK (Gender IN ('MALE', 'FEMALE')),
+    DOB DATE,
+    DepartmentID INT REFERENCES Departments(DepartmentID)
+);
+
+CREATE TABLE Courses (
+    CourseID VARCHAR(10) PRIMARY KEY,
+    CourseName VARCHAR(100) NOT NULL,
+    DepartmentID INT REFERENCES Departments(DepartmentID)
+);
+
+CREATE TABLE Instructors (
+    InstructorID SERIAL PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Gender CHAR(1) CHECK (Gender IN ('MALE', 'FEMALE')),
+    DepartmentID INT REFERENCES Departments(DepartmentID)
+);
+
+CREATE TABLE Enrollments (
+    EnrollmentID VARCHAR(10) PRIMARY KEY,
+    StudentID INT REFERENCES Students(StudentID),
+    CourseID VARCHAR(10) REFERENCES Courses(CourseID),
+EnrollmentDate DATE
+);
+
+
+
+UPDATING THE COURSES TABLE – LATER ON IN THE ANALYSIS
+ALTER TABLE courses
+ADD COLUMN instructorid INT,
+ADD CONSTRAINT fk_instructor
+    FOREIGN KEY (instructorid)
+    REFERENCES instructors(instructorid);
+
+THEN… INSERTING values for instructorid into the courses tables.
+For example: - This was repeated for all instructorid and each course.
+UPDATE courses
+SET instructorid = 5
+WHERE courseid = 'HIS101';
+
+
+
+
