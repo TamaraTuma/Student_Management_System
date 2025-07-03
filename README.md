@@ -16,4 +16,4 @@ The primary objective of this project is to design and create a relational datab
 - One Student can enroll in many Courses (many-to-many via Enrollments)
 
 ## Entity Relationship Diagram 
-![]()
+![](SMS_Schema.png)
